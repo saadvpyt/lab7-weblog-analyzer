@@ -17,6 +17,7 @@ public class LogfileCreator
     public LogfileCreator()
     {
         rand = new Random();
+        createFile("test",1000);
     }
     
     /**

@@ -14,13 +14,13 @@ public class LogAnalyzer
     /**
      * Create an object to analyze hourly web accesses.
      */
-    public LogAnalyzer()
+    public LogAnalyzer(String filename)
     { 
         // Create the array object to hold the hourly
         // access counts.
         hourCounts = new int[24];
         // Create the reader to obtain the data.
-        reader = new LogfileReader();
+        reader = new LogfileReader(filename);
     }
 
     /**
@@ -43,8 +43,10 @@ public class LogAnalyzer
     public void printHourlyCounts()
     {
         System.out.println("Hr: Count");
-        for(int hour = 0; hour < hourCounts.length; hour++) {
+        int hour = 0;
+        while( hour < hourCounts.length) {
             System.out.println(hour + ": " + hourCounts[hour]);
+            hour++;
         }
     }
     
@@ -54,5 +56,21 @@ public class LogAnalyzer
     public void printData()
     {
         reader.printData();
+        double[] marks = {3.3, 4.5, 3.2, 10};
+        printGreater(marks, 4.0);
+    }
+    
+    public void numberOfAccesses(){
+        int total = 0;
+        //for(int hour = 0; hour < hourCounts.length; hour++) {
+        //total += hourCounts[hour];
+    }
+    
+    public void printGreater(double[] marks, double mean) {
+        for(int index = 0; index < marks.length; index++) {
+            if(marks[index] > mean) {
+                System.out.println(marks[index]);
+            }
+        }
     }
 }
